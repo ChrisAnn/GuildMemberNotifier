@@ -17,18 +17,18 @@ function GuildMemberNotifier.Initialise(eventCode, addOnName)
 	EVENT_MANAGER:RegisterForEvent(GuildMemberNotifier.name, EVENT_GUILD_MEMBER_PLAYER_STATUS_CHANGED, GuildMemberNotifier.OnGuildMemberPlayerStatusChanged)
 end
 
-function GuildMemberNotifier.OnGuildMemberPlayerStatusChanged(GuildID, PlayerName, prevStatus, curStatus)
+function GuildMemberNotifier.OnGuildMemberPlayerStatusChanged(eventCode, guildId, playerName, previousStatus, currentStatus)
 	
 	if (GuildMemberNotifier.debug) then
-		d("|r|c888888 [GuildID:"..GuildID.."][PlayerName:"..PlayerName.."][prevStatus:"..prevStatus.."][curStatus:"..curStatus.."]")
+		d("|r|c888888 [eventCode:"..eventCode.."][guildId:"..guildId.."][playerName:"..playerName.."][previousStatus:"..previousStatus.."][currentStatus:"..currentStatus.."]")
 	end
 
 	if (curStatus == PLAYER_STATUS_ONLINE) then
-		d(string.format("|r|cFFC700 %s has logged on", PlayerName)
+		d(string.format("|r|cFFC700 %s has logged on", PlayerName))
 	end
 
 	if (curStatus == PLAYER_STATUS_OFFLINE) then
-		d(string.format("|r|cFFC700 %s has logged off", PlayerName)
+		d(string.format("|r|cFFC700 %s has logged off", PlayerName))
 	end
 end
 
