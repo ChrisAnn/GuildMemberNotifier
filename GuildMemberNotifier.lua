@@ -23,7 +23,7 @@ function GuildMemberNotifier.OnGuildMemberPlayerStatusChanged(eventCode, guildId
 		d("|r|c888888 [eventCode:"..eventCode.."][guildId:"..guildId.."][playerName:"..playerName.."][previousStatus:"..previousStatus.."][currentStatus:"..currentStatus.."]")
 	end
 
-	if (currentStatus == PLAYER_STATUS_ONLINE) then
+	if (currentStatus == PLAYER_STATUS_ONLINE  and playerName ~= GetDisplayName()) then
 		d(string.format("|r|cFFC700 %s has logged on", playerName))
 	end
 
