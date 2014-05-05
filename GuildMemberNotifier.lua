@@ -84,7 +84,7 @@ function GuildMemberNotifier.SplitSlashOptions(commands)
 end
 
 function GuildMemberNotifier.Log(message)
-	if (GuildMemberNotifier.Log) then
+	if (GuildMemberNotifier.debug) then
 		d("|r|c888888 " .. message)
 	end
 end
