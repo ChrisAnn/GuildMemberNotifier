@@ -26,10 +26,7 @@ function GuildMemberNotifier.Initialise(eventCode, addOnName)
 end
 
 function GuildMemberNotifier.OnGuildMemberPlayerStatusChanged(eventCode, guildId, playerName, previousStatus, currentStatus)
-	
-	if (GuildMemberNotifier.debug) then
-		d("|r|c888888 [eventCode:"..eventCode.."][guildId:"..guildId.."][playerName:"..playerName.."][previousStatus:"..previousStatus.."][currentStatus:"..currentStatus.."]")
-	end
+	GuildMemberNotifier.Log("[eventCode:"..eventCode.."][guildId:"..guildId.."][playerName:"..playerName.."][previousStatus:"..previousStatus.."][currentStatus:"..currentStatus.."]")
 
 	if (GuildMemberNotifier.guildTable[guildId] == true) then
 		if (currentStatus == PLAYER_STATUS_ONLINE  and playerName ~= GetDisplayName()) then
@@ -54,9 +51,7 @@ SLASH_COMMANDS["/gmn"] = function (commands)
 		local active = options[2]
 
 		if (guildId ~= nil and (guildId > 0 and guildId <= 5)) then
-			if (GuildMemberNotifier.debug) then
-				d("|r|c888888 [guildId:"..guildId.."]")
-			end
+			GuildMemberNotifier.Log("[guildId:"..guildId.."]")
 		else
 			d("Unrecognised GuildId. Enter '/gmn help'")
 		end
@@ -69,8 +64,8 @@ SLASH_COMMANDS["/gmn"] = function (commands)
 			d("Guild Member notifications OFF for "..GetGuildName(guildId))
 		else
 			d("Unrecognised command. Enter '/gmn help'")
-			if (GuildMemberNotifier.debug and active ~= nil) then
-				d("|r|c888888 [active:"..active.."]")
+			if (active ~= nil) then
+				GuildMemberNotifier.Log("[active:"..active.."]")
 			end
 		end
 	end
@@ -86,6 +81,12 @@ function GuildMemberNotifier.SplitSlashOptions(commands)
 	end
 
 	return options
+end
+
+function GuildMemberNotifier.Log(message)
+	if (GuildMemberNotifier.Log) then
+		d("|r|c888888 " .. message)
+	end
 end
 
 EVENT_MANAGER:RegisterForEvent(GuildMemberNotifier.name, EVENT_ADD_ON_LOADED, GuildMemberNotifier.Initialise)
