@@ -1,4 +1,4 @@
 ## Title: Guild Member Notifier
-## APIVersion: 100003
+## APIVersion: 100004
 
 GuildMemberNotifier.lua
