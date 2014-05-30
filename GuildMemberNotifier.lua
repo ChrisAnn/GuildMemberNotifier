@@ -7,7 +7,7 @@
 
 GuildMemberNotifier = {}
 GuildMemberNotifier.name = "GuildMemberNotifier"
-GuildMemberNotifier.version = "1.1.0"
+GuildMemberNotifier.version = "1.1.1"
 GuildMemberNotifier.debug = false
 
 GuildMemberNotifier.guildTable = { 
