@@ -1,4 +1,6 @@
 ## Title: Guild Member Notifier
-## APIVersion: 100004
+## Author: ChrisAnnODell
+## Version: 1.02
+## APIVersion: 100011
 
 GuildMemberNotifier.lua
